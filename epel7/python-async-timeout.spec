@@ -36,8 +36,8 @@ doesn't create a new task.
 %files
 %license LICENSE
 %doc README.rst CHANGES.rst
-/opt/rh/rh-python35/root/usr/lib/python3.5/site-packages/%{srcname}-*.egg-info
-/opt/rh/rh-python35/root/usr/lib/python3.5/site-packages/%{srcname}
+/opt/rh/rh-python35/root/usr/lib/python3.5/site-packages/async_timeout-*.egg-info
+/opt/rh/rh-python35/root/usr/lib/python3.5/site-packages/async_timeout
 
 %changelog
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.1-2
