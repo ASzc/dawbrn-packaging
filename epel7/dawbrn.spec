@@ -15,14 +15,14 @@ BuildRequires: rh-python35
 Daemon for automatic documentation build and deployment
 
 %prep
-%setup -q -n "%(echo "$(tar -tf %{SOURCE0} | head -1 | tr -d '/')")"
+%setup -q -n dawbrn-dawbrn-%{version}
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_usr}/lib/dawbrn/
 cp -r dawbrn %{buildroot}%{_usr}/lib/dawbrn/
-cd packaging/install
+cd install
 install -Dm644 usr/lib/systemd/system/dawbrn.service %{buildroot}%{_usr}/lib/systemd/system/dawbrn.service
 install -Dm440 etc/sudoers.d/10-dawbrn %{buildroot}%{_sysconfdir}/sudoers.d/10-dawbrn
 install -Dm600 etc/sysconfig/dawbrn %{buildroot}%{_sysconfdir}/sysconfig/dawbrn

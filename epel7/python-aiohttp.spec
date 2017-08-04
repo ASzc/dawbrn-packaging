@@ -28,17 +28,9 @@ server side of the HTTP protocol, client and server websocket, and webservers
 with middlewares and pluggable routing.
 
 %prep
-%setup -q -n "%(echo "$(tar -tf %{SOURCE0} | head -1 | tr -d '/')")"
+%setup -q -n %{srcname}-%{version}
 
 %build
-echo ------------------
-echo ------------------
-ls -lha /builddir/build/SOURCES/
-tar -tvvf %{SOURCE0}
-ls -laR
-find -iname '*setup*'
-echo ------------------
-echo ------------------
 CFLAGS="%{optflags}" %{__python3} setup.py build
 sleep 1
 
