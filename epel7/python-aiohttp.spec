@@ -1,4 +1,5 @@
 # http://pkgs.fedoraproject.org/cgit/rpms/python-aiohttp.git/plain/python-aiohttp.spec
+AutoReq: no
 
 %global srcname aiohttp
 

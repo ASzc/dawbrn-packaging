@@ -1,3 +1,5 @@
+AutoReq: no
+
 %global modname multidict
 
 #global rctag b4

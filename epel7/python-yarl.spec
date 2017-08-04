@@ -1,3 +1,5 @@
+AutoReq: no
+
 %global srcname yarl
 
 Name:           rh-python35-%{srcname}

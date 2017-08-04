@@ -1,4 +1,5 @@
 # http://pkgs.fedoraproject.org/cgit/rpms/python-chardet.git/tree/python-chardet.spec
+AutoReq: no
 
 %global pypi_name chardet
 

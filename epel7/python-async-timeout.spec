@@ -1,3 +1,5 @@
+AutoReq: no
+
 %global srcname async-timeout
 
 Name:           rh-python35-%{srcname}
