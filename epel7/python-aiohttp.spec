@@ -41,7 +41,7 @@ CFLAGS="%{optflags}" %{__python3} setup.py install -O1 --skip-build --root %{bui
 %doc CHANGES.rst CONTRIBUTING.rst CONTRIBUTORS.txt HISTORY.rst README.rst
 %license LICENSE.txt
 /opt/rh/rh-python35/root/usr/lib64/python3.5/site-packages/%{srcname}-*.egg-info
-/opt/rh/rh-python35/root/usr/lib64/python3.5/site-packages/aiohttp
+/opt/rh/rh-python35/root/usr/lib64/python3.5/site-packages/%{srcname}
 
 %changelog
 * Thu Aug 03 2017 Fabian Affolter <mail@fabian-affolter.ch> - 2.2.4-1
