@@ -35,13 +35,13 @@ CFLAGS="%{optflags}" %{__python3} setup.py build
 sleep 1
 
 %install
-CFLAGS="%{optflags}" %{__python3} setup.py install -O1 --skip-build --root %{buildroot}/opt/rh/rh-python35/root
+CFLAGS="%{optflags}" %{__python3} setup.py install -O1 --skip-build --root %{buildroot}
 
 %files
 %doc CHANGES.rst CONTRIBUTING.rst CONTRIBUTORS.txt HISTORY.rst README.rst
 %license LICENSE.txt
-%{python35python3_sitearch}/%{srcname}-*.egg-info/
-%{python35python3_sitearch}/%{srcname}/
+/opt/rh/rh-python35/root/usr/lib64/python3.5/site-packages/%{srcname}-*.egg-info
+/opt/rh/rh-python35/root/usr/lib64/python3.5/site-packages/aiohttp
 
 %changelog
 * Thu Aug 03 2017 Fabian Affolter <mail@fabian-affolter.ch> - 2.2.4-1
