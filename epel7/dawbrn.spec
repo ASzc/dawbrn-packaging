@@ -31,6 +31,8 @@ install -dm700 %{buildroot}%{_localstatedir}/lib/dawbrn
 install -Dm664 var/lib/dawbrn/gitconfig %{buildroot}%{_localstatedir}/lib/dawbrn/.gitconfig
 # cache
 install -Dm644 etc/nginx/conf.d/10-dawbrn-cache.conf %{buildroot}%{_sysconfdir}/nginx/conf.d/10-dawbrn-cache.conf
+install -Dm755 usr/bin/dawbrn_cache-posttrans %{buildroot}%{_bindir}/dawbrn_cache-posttrans
+install -dm755 %{buildroot}%{_sysconfdir}/dawbrn/maven-cache
 install -dm700 %{buildroot}%{_localstatedir}/lib/nginx/dawbrn_cache
 # cache-mavencentral
 install -Dm644 etc/nginx/default.d/10-dawbrn-cache-mavencentral.conf %{buildroot}%{_sysconfdir}/nginx/default.d/10-dawbrn-cache-mavencentral.conf
@@ -72,10 +74,16 @@ Requires: nginx
 %description cache
 Configuration file for nginx to cache for dawbrn
 
+%postun cache
+rm -f %{_sysconfdir}/dawbrn/maven-cache/settings.xml
+
 %files cache
 %defattr(-,root,root)
 %{_sysconfdir}/nginx/conf.d/10-dawbrn-cache.conf
+%{_bindir}/dawbrn_cache-posttrans
 %dir %{_sysconfdir}/dawbrn/maven-cache.d
+%dir %{_sysconfdir}/dawbrn/maven-cache
+%ghost %{_sysconfdir}/dawbrn/maven-cache/settings.xml
 %dir %attr(-,nginx,nginx) %{_localstatedir}/lib/nginx/dawbrn_cache
 
 
@@ -88,6 +96,12 @@ Requires: dawbrn-cache
 
 %description cache-mavencentral
 Configuration file for nginx to cache maven central
+
+%post cache-mavencentral
+%{_bindir}/dawbrn_cache-posttrans
+
+%postun cache-mavencentral
+%{_bindir}/dawbrn_cache-posttrans
 
 %files cache-mavencentral
 %defattr(-,root,root)
