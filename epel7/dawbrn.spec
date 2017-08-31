@@ -1,6 +1,6 @@
 Name: dawbrn
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: Documentation Autobuilds Would Be Really Nice
 License: ASL 2.0
 BuildArch: noarch
@@ -66,8 +66,8 @@ getent passwd dawbrn > /dev/null || /usr/sbin/useradd -r -g dawbrn \
 
 
 %package cache
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: nginx-based caches for dawbrn
 Requires: nginx
 
@@ -89,8 +89,8 @@ rm -f %{_sysconfdir}/dawbrn/maven-cache/settings.xml
 
 
 %package cache-mavencentral
-Version: 1.0.0
-Release: 2%{?dist}
+Version: 1.0.1
+Release: 1%{?dist}
 Summary: nginx-based cache of Maven Central for dawbrn
 Requires: dawbrn-cache
 
