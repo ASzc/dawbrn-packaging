@@ -15,7 +15,7 @@ BuildRequires: rh-python35
 Daemon for automatic documentation build and deployment
 
 %prep
-%setup -q -n dawbrn-%{version}
+%setup -q -n dawbrn-dawbrn-%{version}
 
 %build
 
