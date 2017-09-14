@@ -1,5 +1,5 @@
 Name: dawbrn
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?dist}
 Summary: Documentation Autobuilds Would Be Really Nice
 License: ASL 2.0
@@ -27,6 +27,7 @@ install -Dm644 usr/lib/systemd/system/dawbrn.service %{buildroot}%{_usr}/lib/sys
 install -Dm440 etc/sudoers.d/10-dawbrn %{buildroot}%{_sysconfdir}/sudoers.d/10-dawbrn
 install -Dm600 etc/sysconfig/dawbrn %{buildroot}%{_sysconfdir}/sysconfig/dawbrn
 install -Dm755 usr/bin/dawbrn_dockerbuild %{buildroot}%{_bindir}/dawbrn_dockerbuild
+install -Dm755 etc/dawbrn/dockerbuild.d/10-maven.sh %{buildroot}%{_sysconfdir}/dawbrn/dockerbuild.d/10-maven.sh
 install -dm700 %{buildroot}%{_localstatedir}/lib/dawbrn
 install -Dm664 var/lib/dawbrn/gitconfig %{buildroot}%{_localstatedir}/lib/dawbrn/.gitconfig
 # cache
@@ -55,6 +56,7 @@ getent passwd dawbrn > /dev/null || /usr/sbin/useradd -r -g dawbrn \
 %{_sysconfdir}/sudoers.d/10-dawbrn
 %config(noreplace) %{_sysconfdir}/sysconfig/dawbrn
 %{_bindir}/dawbrn_dockerbuild
+%{_sysconfdir}/dawbrn/dockerbuild.d/10-maven.sh
 %defattr(-,dawbrn,dawbrn)
 %dir %{_localstatedir}/lib/dawbrn
 %{_localstatedir}/lib/dawbrn/.gitconfig
@@ -66,7 +68,7 @@ getent passwd dawbrn > /dev/null || /usr/sbin/useradd -r -g dawbrn \
 
 
 %package cache
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?dist}
 Summary: nginx-based caches for dawbrn
 Requires: nginx
@@ -89,7 +91,7 @@ rm -f %{_sysconfdir}/dawbrn/maven-cache/settings.xml
 
 
 %package cache-mavencentral
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?dist}
 Summary: nginx-based cache of Maven Central for dawbrn
 Requires: dawbrn-cache
