@@ -15,8 +15,7 @@ BuildRequires: rh-python35
 Daemon for automatic documentation build and deployment
 
 %prep
-tar -tvvf /builddir/build/SOURCES/dawbrn-1.0.2.tar.gz
-%setup -q -n dawbrn-dawbrn-%{version}
+%setup -q -n dawbrn-%{version}
 
 %build
 
